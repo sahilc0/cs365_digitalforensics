@@ -57,12 +57,12 @@ def logged_in():
     # What should it do? Read the docstring above.
     # It should return the given string. Change it to do so (once you've
     # actually logged into both, of course!).
-    pass
+    return 'I have logged into both the Edlab and Gradescope.'
 
 
 def add(x, y):
     """Return the sum of x and y."""
-    pass
+    return (x+y)
 
 
 def divide(x, y, truncate=False):
@@ -71,19 +71,22 @@ def divide(x, y, truncate=False):
     # Note that arguments to functions can be optional if you specify a
     # default value. But the caller could override this value (see
     # the tests for examples.)
-    pass
+    if truncate == True:
+        return x//y
+    else:
+        return x/y
 
 
 def value_equal(x, y):
     """Return True iff x and y are equal in value (but not necessarily
     the same object) -- roughly equivalent to`.equals()` in Java."""
-    pass
+    return x == y
 
 
 def memory_equal(x, y):
     """Return True iff x and y point to the same object in memory --
     roughly equivalent to `==` in Java."""
-    pass
+    return x is y
 
 
 def hello(x):
@@ -94,51 +97,56 @@ def hello(x):
     >>> hello('Marc')
     'Hello Marc'
     """
-    pass
+    return 'Hello {name}'.format(name=x)
 
 
 def nth(s, n):
     """Return the nth item of the sequence s (zero-indexed)."""
-    pass
-
+    return s[n]  # of course not including edge cases
 
 def subsequence(s, start, end):
     """Return the subsequence of the items at index start (inclusive)
     to end (exclusive) in sequence s."""
-    pass
+    return s[start:end]
 
 
 def last(s):
     """Return the last item in the sequence."""
-    pass
+    return s[-1]
 
 
 def append_to(l, e):
     """Append e to the list l."""
-    pass
+    return l.append(e)
 
 
 def sum_of(s):
     """Return the sum of the integers in the sequence s."""
-    pass
-
+    return sum(s)
 
 def all_even(s):
     """Return true iff every element in s is an even integer (or s is empty)."""
-    pass
+    if not s:  # if it's empty
+        return True
+    # for element in s:  # if there's a letter in the list
+    #     if element.isalpha:
+    #         return False
+    else:  # if all are even
+        return all(element % 2 == 0 for element in s)
 
 
 def lookup(d, k):
     """Return the value associated with the key k in the dictionary d."""
-    pass
+    return d.get(k)
 
 
 def insert(d, k, v):
     """Associate the key k with the value v in the dictionary d.
     Overwrite any previous value associated with k."""
-    pass
+    d[k] = v
 
 
 def read_all(filename):
     """Returns the contents of the given file, opened in default (text) mode."""
-    pass
+    with open(filename) as file:
+        return file.read()

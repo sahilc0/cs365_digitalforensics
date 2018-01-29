@@ -128,9 +128,8 @@ def all_even(s):
     """Return true iff every element in s is an even integer (or s is empty)."""
     if not s:  # if it's empty
         return True
-    # for element in s:  # if there's a letter in the list
-    #     if element.isalpha:
-    #         return False
+    if isinstance(s, str):
+        return False
     else:  # if all are even
         return all(element % 2 == 0 for element in s)
 
